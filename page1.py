@@ -49,17 +49,18 @@ def enemyspawn(enemyname, enemyhealth, enemydamage, enemyclass):
     enemyhealth = enemyhealth + ehealth1
   if determ == 2:
     enemyhealth = enemyhealth - ehealth1
-  #Determines whether to increase enemyhealth by 1-5 or decrease by 1-5
+  #Determines whether to increase or decrease enemyhealth by 1/4 - 1/6 of health 
+    
   edmg1 = int(enemydamage / 6)
   edmg2 = int(enemydamage / 4)
-  edamage1 = random.randint(edmg1 , dmg2)
-  
+  edamage1 = random.randint(edmg1, edmg2)
+  #Used to randomly scale enemy damage up or down by 1/4 - 1/6 of its damage
   determ = random.randint(1, 2)
   if determ == 1: 
     enemydamage = enemydamage + edamage1
   if determ == 2:
     enemydamage = enemydamage - edamage1
-
+  #Determines whether to increase or decrease enemydeamage by 1/4 - 1/6 of damage
     
   result = str(enemyname) + str(approachtext) + "\nTheir health is: " + str(enemyhealth) + "\nTheir class is: " + str(enemyclass)
   return result
