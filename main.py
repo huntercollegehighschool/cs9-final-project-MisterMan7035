@@ -1,11 +1,33 @@
 """
-Name(s):
-Name of Project:
+Name(s): David Li, Diane He
+Name of Project: 
 """
+import random
 
-#Write the main part of your program here. Use of the other pages is optional.
+def rten(x):
+  x = random.randint(1, 10)
+  return x
 
-#import page1  # uncomment if you're using page1
-#import page2  # uncomment if you're using page2
-#import page3  # uncomment if you're using page3
-#import page4  # uncomment if you're using page4
+prg = 0
+while prg != 1:
+  Sinput = input("[Start] [Quit] [Options]: ")
+  if Sinput == "start":
+    import page1
+    prg = 1 
+  if Sinput == "Start":
+    import page1
+    prg = 1 
+
+  if Sinput == "quit":
+    quit()
+
+  if Sinput == "Quit":
+    quit()
+
+  if Sinput == "Options":
+    print("There are no options.")
+
+  if Sinput == "options":
+    print("There are no options.")
+
+
