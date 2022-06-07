@@ -3,6 +3,10 @@ import time
 import os
 import random
 
+
+
+"""
+
 dotArray = "Loading"
 x = 1
 t = 0.001
@@ -19,6 +23,12 @@ time.sleep(3)
 os.system("clear")
 time.sleep(3)
 
+UNCOMMENT THIS SOMETIME!
+"""
+
+
+
+
 def enemyspawn(enemyname, enemyhealth, enemydamage, enemyclass):
   approachdeterm = random.randint(1, 3)
   approachtext = 0
@@ -29,8 +39,9 @@ def enemyspawn(enemyname, enemyhealth, enemydamage, enemyclass):
   if approachdeterm == 3: 
     approachtext = " encounters you!"
   #Randomly selects an approach text
-  
-  ehealth1 = enemyhealth + random.randint(1, 5)
+  ehp1 = int(enemyhealth / 6)
+  ehp2 = int(enemyhealth / 4)
+  ehealth1 = random.randint(ehp1 , ehp2)
   #Used to randomly scale enemy health up or down 5
 
   determ = random.randint(1, 2)
