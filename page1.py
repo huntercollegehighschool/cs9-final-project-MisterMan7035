@@ -66,20 +66,41 @@ def enemyspawn(enemyname, enemyhealth, enemydamage, enemyclass):
   enemyhealth1 = enemyhealth
   global enemydamage1
   enemydamage1 = enemydamage
-  #Makes enemyhealth1 and enemydamage1 global variables equal to health and damage
+  global enemyname1
+  enemyname1 = enemyname
+  global enemyclass1
+  enemyclass1 = enemyclass
+  #Makes several global variables
   result = str(enemyname) + str(approachtext) + "\nTheir health is: " + str(enemyhealth) + "\nTheir class is: " + str(enemyclass)
   return result
 
 
 
+#[variable].lower() converts it to all lowercase (very useful)
 
 def triggeraction(): 
-  actiondeterm = input("[Attack] [Use item] [Heal]")
-  if actiondeterm == "Attack":
-    print("You attack for [placeholder] damage!")
-  return actiontext
+  actiondeterm = input("[Attack] [Use item] [Scavenge]")
+  global enemyhealth1  
+  enemyhealth = enemyhealth1
+  if actiondeterm.lower() == "attack":
+    os.system("clear")
+    playerdamage = random.randint(5, 10)
+    enemyhealth = enemyhealth - playerdamage
+    action = ("You attack " + str(enemyname1) + " for " + str(playerdamage) + " damage!" "\nThey have " + str(enemyhealth) + " remaining.")
+    enemyhealth1 = enemyhealth
+    return action
+
+
+""""
+  if actiondeterm.lower() == "use item":
+    #Placeholder action
+  if actiondeterm.lower() == "scavenge":
+    #placeholder action
+  return action
+"""
+
 
 print(enemyspawn("Combatant", 100, 10, "Mage"))
-#print(triggeraction())
-print(enemyhealth1)
-print(enemydamage1)
+x = 1
+while x == 1:
+  print(triggeraction())

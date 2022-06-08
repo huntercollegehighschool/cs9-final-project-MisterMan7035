@@ -11,23 +11,14 @@ def rten(x):
 prg = 0
 while prg != 1:
   Sinput = input("[Start] [Quit] [Options]: ")
-  if Sinput == "start":
-    import page1
-    prg = 1 
-  if Sinput == "Start":
+  if Sinput.lower() == "start":
     import page1
     prg = 1 
 
-  if Sinput == "quit":
+  if Sinput.lower() == "quit":
     quit()
 
-  if Sinput == "Quit":
-    quit()
-
-  if Sinput == "Options":
-    print("There are no options.")
-
-  if Sinput == "options":
+  if Sinput.lower() == "options":
     print("There are no options.")
 
 
