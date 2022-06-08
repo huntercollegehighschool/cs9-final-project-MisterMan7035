@@ -27,7 +27,8 @@ UNCOMMENT THIS SOMETIME!
 """
 
 
-
+enemyhealth1 = 0
+enemydamage1 = 0
 
 def enemyspawn(enemyname, enemyhealth, enemydamage, enemyclass):
   approachdeterm = int(random.randint(1, 3))
@@ -61,9 +62,24 @@ def enemyspawn(enemyname, enemyhealth, enemydamage, enemyclass):
   if determ == 2:
     enemydamage = enemydamage - edamage1
   #Determines whether to increase or decrease enemydeamage by 1/4 - 1/6 of damage
-    
+  global enemyhealth1 
+  enemyhealth1 = enemyhealth
+  global enemydamage1
+  enemydamage1 = enemydamage
+  #Makes enemyhealth1 and enemydamage1 global variables equal to health and damage
   result = str(enemyname) + str(approachtext) + "\nTheir health is: " + str(enemyhealth) + "\nTheir class is: " + str(enemyclass)
   return result
 
 
+
+
+def triggeraction(): 
+  actiondeterm = input("[Attack] [Use item] [Heal]")
+  if actiondeterm == "Attack":
+    print("You attack for [placeholder] damage!")
+  return actiontext
+
 print(enemyspawn("Combatant", 100, 10, "Mage"))
+#print(triggeraction())
+print(enemyhealth1)
+print(enemydamage1)
