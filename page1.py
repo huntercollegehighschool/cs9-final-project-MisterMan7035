@@ -115,6 +115,5 @@ def triggeraction():
 
 
 print(enemyspawn(namegen(), 100, 10, enemyclass1))
-x = 1
-while x == 1:
+while True:
   print(triggeraction())
