@@ -1,4 +1,3 @@
-#Use of this page is optional. If you use code here, make sure either import page1 or from page1 import * appear on your main.py page.'
 import time
 import os
 import random
@@ -68,8 +67,6 @@ def enemyspawn(enemyname, enemyhealth, enemydamage, enemyclass):
   enemydamage1 = enemydamage
   global enemyname1
   enemyname1 = enemyname
-  global enemyclass1
-  enemyclass1 = enemyclass
   #Makes several global variables
   result = str(enemyname) + str(approachtext) + "\nTheir health is: " + str(enemyhealth) + "\nTheir class is: " + str(enemyclass)
   return result
@@ -77,6 +74,7 @@ def enemyspawn(enemyname, enemyhealth, enemydamage, enemyclass):
 def namegen():
   firstname =["Ryan", "George"]
   midname = ["Mage", "Warrior", "Knight", "Archer"]
+  global enemyclass1
   lastname = ["Alabama","Alaska","Arizona","Arkansas","California","Colorado",
   "Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois",
   "Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland",
@@ -88,9 +86,9 @@ def namegen():
   name1 = random.choice(tuple(firstname))
   name2 = random.choice(tuple(midname))
   name3 = random.choice(tuple(lastname))
+  enemyclass1 = name2
   result = str(name1) + ", " + str(name2) + " of " + str(name3)
   return result
-  
 
 #[variable].lower() converts it to all lowercase (very useful)
 
@@ -116,7 +114,7 @@ def triggeraction():
 """
 
 
-print(enemyspawn(namegen(), 100, 10, "Mage"))
+print(enemyspawn(namegen(), 100, 10, enemyclass1))
 x = 1
 while x == 1:
   print(triggeraction())
