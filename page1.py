@@ -94,19 +94,23 @@ def namegen():
 
 
 def enemyaction():
-  actiondeterm = random.randint(1, 2)
+  actiondeterm = random.randint(1, 4)
   if actiondeterm == 1:
+    os.system("clear")
+    x = random.randint(5, 20)
+    global enemyhealth1
+    enemyhealth = enemyhealth1 
+    enemyhp = enemyhealth + x
+    result = str(enemyname1) + " heals by " + str(x) + " health." + "\nTheir health is now " + str(enemyhp) + "."
+    return result
+  else:
     os.system("clear")
     global playerhealth
     playerhealth1 = playerhealth
     playerhealth = playerhealth1 - enemydamage1
     result = str(enemyname1) + " attacks you for " + str(enemydamage1) + " damage." + "\n You have " + str(playerhealth) + " health left."
     return result
-  if actiondeterm == 2:
-    os.system("clear")
-    result = "System rolled 2"
-    return result
-    #PLACEHOLDER
+    
 
   
 
