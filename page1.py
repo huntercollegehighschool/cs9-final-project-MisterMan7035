@@ -74,7 +74,23 @@ def enemyspawn(enemyname, enemyhealth, enemydamage, enemyclass):
   result = str(enemyname) + str(approachtext) + "\nTheir health is: " + str(enemyhealth) + "\nTheir class is: " + str(enemyclass)
   return result
 
-
+def namegen():
+  firstname =["Ryan", "George"]
+  midname = ["Mage", "Warrior", "Knight", "Archer"]
+  lastname = ["Alabama","Alaska","Arizona","Arkansas","California","Colorado",
+  "Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois",
+  "Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland",
+  "Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana",
+  "Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York",
+  "North Carolina","North Dakota","Ohio","Oklahoma","Oregon","Pennsylvania",
+  "Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah",
+  "Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"]
+  name1 = random.choice(tuple(firstname))
+  name2 = random.choice(tuple(midname))
+  name3 = random.choice(tuple(lastname))
+  result = str(name1) + ", " + str(name2) + " of " + str(name3)
+  return result
+  
 
 #[variable].lower() converts it to all lowercase (very useful)
 
@@ -100,7 +116,7 @@ def triggeraction():
 """
 
 
-print(enemyspawn("Combatant", 100, 10, "Mage"))
+print(enemyspawn(namegen(), 100, 10, "Mage"))
 x = 1
 while x == 1:
   print(triggeraction())
