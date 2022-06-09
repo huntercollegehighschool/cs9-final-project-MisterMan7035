@@ -72,7 +72,7 @@ def enemyspawn(enemyname, enemyhealth, enemydamage, enemyclass):
   return result
 
 def namegen():
-  firstname =["Ryan", "George", "Benson", "Albert", "Katya", "Lily"]
+  firstname =["Ryan", "George", "Benson", "Albert", "Katya", "Lily", "Kai", "Sarah", "Lynn"]
   midname = ["Mage", "Warrior", "Knight", "Archer"]
   global enemyclass1
   lastname = ["Alabama","Alaska","Arizona","Arkansas","California","Colorado",
