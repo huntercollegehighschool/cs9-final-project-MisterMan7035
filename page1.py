@@ -107,8 +107,15 @@ def enemyaction():
     os.system("clear")
     global playerhealth
     playerhealth1 = playerhealth
-    playerhealth = playerhealth1 - enemydamage1
-    result = str(enemyname1) + " attacks you for " + str(enemydamage1) + " damage." + "\n You have " + str(playerhealth) + " health left."
+    intdeterm = random.randint(1, 2)
+    x = random.randint(1, 3)
+    y = enemydamage1
+    if intdeterm == 1:
+      z = y + x
+    if intdeterm == 2:
+      z = y - x
+    playerhealth = playerhealth1 - z
+    result = str(enemyname1) + " attacks you for " + str(z) + " damage." + "\n You have " + str(playerhealth) + " health left."
     return result
     
 
@@ -141,9 +148,9 @@ def triggeraction():
   return action
 """
 
-
-print(enemyspawn(namegen(), 100, 10, enemyclass1))
 while True:
-  print(triggeraction())
-  input("[Next]")
-  print(enemyaction())
+  print(enemyspawn(namegen(), 100, 10, enemyclass1))
+  while True:
+    print(triggeraction())
+    input("[Next]")
+    print(enemyaction())
