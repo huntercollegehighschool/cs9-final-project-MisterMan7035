@@ -25,7 +25,7 @@ time.sleep(3)
 UNCOMMENT THIS SOMETIME!
 """
 
-
+playerhealth = 100
 enemyhealth1 = 0
 enemydamage1 = 0
 
@@ -92,6 +92,30 @@ def namegen():
 
 #[variable].lower() converts it to all lowercase (very useful)
 
+
+def enemyaction():
+  actiondeterm = random.randint(1, 2)
+  if actiondeterm == 1:
+    os.system("clear")
+    global playerhealth
+    playerhealth1 = playerhealth
+    playerhealth = playerhealth1 - enemydamage1
+    result = str(enemyname1) + " attacks you for " + str(enemydamage1) + " damage." + "\n You have " + str(playerhealth) + " health left."
+    return result
+  if actiondeterm == 2:
+    os.system("clear")
+    result = "System rolled 2"
+    return result
+    #PLACEHOLDER
+
+  
+
+def useitem(item):
+  if item.lower == "health potion":
+    result = 0
+    #placeholder
+
+
 def triggeraction(): 
   actiondeterm = input("[Attack] [Use item] [Scavenge]")
   global enemyhealth1  
@@ -117,3 +141,5 @@ def triggeraction():
 print(enemyspawn(namegen(), 100, 10, enemyclass1))
 while True:
   print(triggeraction())
+  input("[Next]")
+  print(enemyaction())
