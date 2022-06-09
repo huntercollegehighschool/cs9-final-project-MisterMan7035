@@ -1,0 +1,8 @@
+enemyspawn(enemyname, enemyhealth, enemydamage, enemyclass)
+Generates an enemy with entered name and class, and slight variations in health and damage from entered values.
+
+namegen()
+Generates a random name for enemy based on lists
+
+triggeraction()
+Prompts player for an action, accounts for results of said action
