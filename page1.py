@@ -28,6 +28,9 @@ UNCOMMENT THIS SOMETIME!
 playerhealth = 100
 enemyhealth1 = 0
 enemydamage1 = 0
+healthpotion = 3
+inventory = "You have " + str(healthpotion) + " health potions."
+
 
 def enemyspawn(enemyname, enemyhealth, enemydamage, enemyclass):
   approachdeterm = int(random.randint(1, 3))
@@ -72,7 +75,7 @@ def enemyspawn(enemyname, enemyhealth, enemydamage, enemyclass):
   return result
 
 def namegen():
-  firstname =["Ryan", "George", "Benson", "Albert", "Katya", "Lily", "Kai", "Sarah", "Lynn", "Diane", "Basil"]
+  firstname =["Ryan", "George", "Benson", "Albert", "Katya", "Lily", "Kai", "Sarah", "Lynn", "Diane", "Basil", "William", "Theo", "Ayden"]
   midname = ["Mage", "Warrior", "Knight", "Archer"]
   global enemyclass1
   lastname = ["Alabama","Alaska","Arizona","Arkansas","California","Colorado",
@@ -123,7 +126,16 @@ def enemyaction():
 
 def useitem(item):
   if item.lower == "health potion":
-    result = 0
+    global playerhealth
+    global healthpotion
+    x = healthpotion
+    healthpotion = x - 1
+    y = playerhealth
+    z = random.randint(10, 15)
+    playerhealth = y + z
+    
+    result = "You use a health potion! \n You are healed for " + str(z) + " health. \nYou have " + str(healthpotion) + " left." 
+    return result
     #placeholder
 
 
@@ -131,6 +143,8 @@ def triggeraction():
   actiondeterm = input("[Attack] [Use item] [Scavenge]")
   global enemyhealth1  
   enemyhealth = enemyhealth1
+  global repeataction
+  repeataction = 0
   if actiondeterm.lower() == "attack":
     os.system("clear")
     playerdamage = random.randint(5, 10)
@@ -138,19 +152,42 @@ def triggeraction():
     action = ("You attack " + str(enemyname1) + " for " + str(playerdamage) + " damage!" "\nThey have " + str(enemyhealth) + " remaining.")
     enemyhealth1 = enemyhealth
     return action
-
-
-""""
+    
   if actiondeterm.lower() == "use item":
-    #Placeholder action
+    global healthpotion
+    if healthpotion == 0:
+      action = ("You have no items.")
+      return action
+    if healthpotion != 0:
+      print(inventory)
+      x = 0
+      while x == 0:
+        item = (input("[Use an item] [Cancel]"))
+        if item.lower() == "cancel":
+          return 0
+        if item.lower() == "health potion":
+          action = useitem(item)
+          x = 1
+          return action
+
+  if actiondeterm.lower() != "use item":
+      return 0
+  if actiondeterm.lower() != "attack":
+      return 0
+    
+"""
   if actiondeterm.lower() == "scavenge":
     #placeholder action
   return action
 """
 
+x = 1 
 while True:
   print(enemyspawn(namegen(), 100, 10, enemyclass1))
   while True:
-    print(triggeraction())
+    x = triggeraction()
+    while x == 0:
+      x = triggeraction()
+    print(x)
     input("[Next]")
     print(enemyaction())

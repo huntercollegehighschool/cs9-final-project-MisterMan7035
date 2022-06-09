@@ -11,7 +11,7 @@ def rten(x):
 
 prg = 0
 while prg != 1:
-  Sinput = input("[Start] [Quit] [Options]: ")
+  Sinput = input("[Start] [Quit] [Info]: ")
   if Sinput.lower() == "start":
     import page1
     os.system("clear")
@@ -21,7 +21,7 @@ while prg != 1:
   if Sinput.lower() == "quit":
     quit()
 
-  if Sinput.lower() == "options":
-    print("There are no options.")
-
-
+  if Sinput.lower() == "info":
+    print("This program was created by David Li and Diane He. \nAll the enemies in this game are randomly generated, using functions. \nAll the names for randomly generated enemies were taken (with permission) from those of classmates and peers.")
+    input("[Close]")
+    os.system("clear")
