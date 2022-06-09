@@ -75,17 +75,11 @@ def enemyspawn(enemyname, enemyhealth, enemydamage, enemyclass):
   return result
 
 def namegen():
-  firstname =["Ryan", "George", "Benson", "Albert", "Katya", "Lily", "Kai", "Sarah", "Lynn", "Diane", "Basil", "William", "Theo", "Ayden"]
+  firstname =["Ryan", "George", "Benson", "Albert", "Katya", "Lily", "Kai", "Sarah", "Lynn", "Diane", "Basil", "William", "Theo", "Ayden", "Nile", "Eric", "Levi", "Arche", "Rio", "Austin", "Georgie", "Sasha", "Jaivan", "Kiren", "Kareem", "Diya", "Bella", "Felix", "Jennie"]
   midname = ["Mage", "Warrior", "Knight", "Archer"]
   global enemyclass1
-  lastname = ["Alabama","Alaska","Arizona","Arkansas","California","Colorado",
-  "Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois",
-  "Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland",
-  "Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana",
-  "Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York",
-  "North Carolina","North Dakota","Ohio","Oklahoma","Oregon","Pennsylvania",
-  "Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah",
-  "Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"]
+  lastname = ["Alabama","Alaska","Arizona","Arkansas","California","Colorado", "Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois", "Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland", "Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana",
+  "Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York", "North Carolina","North Dakota","Ohio","Oklahoma","Oregon","Pennsylvania", "Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah", "Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"]
   name1 = random.choice(tuple(firstname))
   name2 = random.choice(tuple(midname))
   name3 = random.choice(tuple(lastname))
