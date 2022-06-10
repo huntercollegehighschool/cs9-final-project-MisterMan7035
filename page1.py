@@ -1,7 +1,7 @@
 import time
 import os
 import random
-import sys
+
 
 
 """
@@ -25,9 +25,10 @@ time.sleep(3)
 UNCOMMENT THIS SOMETIME!
 """
 
-playerhealth = 10
+playerhealth = 100
 enemyhealth1 = 0
 enemydamage1 = 0
+enemydead = 0
 healthpotion = 3
 inventory = "You have " + str(healthpotion) + " health potions."
 
@@ -145,6 +146,8 @@ def triggeraction():
     os.system("clear")
     playerdamage = random.randint(5, 10)
     enemyhealth = enemyhealth - playerdamage
+    if enemyhealth < 1:
+      enemyhealth = 0
     action = ("You attack " + str(enemyname1) + " for " + str(playerdamage) + " damage!" "\nThey have " + str(enemyhealth) + " remaining.")
     enemyhealth1 = enemyhealth
     return action
@@ -177,6 +180,15 @@ def triggeraction():
   return action
 """
 
+def enemydeath():
+  global enemyhealth1
+  global enemyname1
+  global enemydead
+  if enemyhealth1 < 1: 
+    print("You have defeated " + str(enemyname1) + ".")
+    #ADD ITEM DROPS
+    enemydead = 1
+
 def playerdeath():
   global playerhealth
   if playerhealth < 1:
@@ -192,11 +204,12 @@ def playerdeath():
           playerhealth = 100
       print(enemyspawn(namegen(), 100, 10, enemyclass1))
       
-       
+
 x = 1 
 while True:
-  print(enemyspawn(namegen(), 100, 10, enemyclass1))
-  while True:
+  print(enemyspawn(namegen(), 10, 10, enemyclass1))
+  enemydead = 0
+  while enemydead == 0:
     x = triggeraction()
     while x == 0:
       x = triggeraction()
@@ -204,4 +217,5 @@ while True:
     input("[Press 'Enter' to continue]")
     print(enemyaction())
     playerdeath()
+    enemydeath()
     
