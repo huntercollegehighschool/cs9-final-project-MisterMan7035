@@ -28,7 +28,6 @@ UNCOMMENT THIS SOMETIME!
 playerhealth = 100
 enemyhealth1 = 0
 enemydamage1 = 0
-enemydead = 0
 healthpotion = 3
 inventory = "You have " + str(healthpotion) + " health potions."
 
@@ -93,15 +92,18 @@ def namegen():
 
 def enemyaction():
   actiondeterm = random.randint(1, 4)
+  global enemyhealth1
+  if enemyhealth1 < 1:
+    actiondeterm = 0
+    return 1
   if actiondeterm == 1:
     os.system("clear")
     x = random.randint(5, 20)
-    global enemyhealth1
     enemyhealth = enemyhealth1 
     enemyhp = enemyhealth + x
     result = str(enemyname1) + " heals by " + str(x) + " health." + "\nTheir health is now " + str(enemyhp) + "."
     return result
-  else:
+  if actiondeterm == 2 or actiondeterm == 3 or actiondeterm == 4:
     os.system("clear")
     global playerhealth
     playerhealth1 = playerhealth
@@ -115,7 +117,7 @@ def enemyaction():
     playerhealth = playerhealth1 - z
     if playerhealth < 0:
       playerhealth = 0
-    result = str(enemyname1) + " attacks you for " + str(z) + " damage." + "\n You have " + str(playerhealth) + " health left."
+    result = str(enemyname1) + " attacks you for " + str(z) + " damage.\nYou have " + str(playerhealth) + " health left."
     return result
     
     
@@ -187,7 +189,9 @@ def enemydeath():
   if enemyhealth1 < 1: 
     print("You have defeated " + str(enemyname1) + ".")
     #ADD ITEM DROPS
-    enemydead = 1
+    input("[Press 'Enter' to continue.]")
+    os.system("clear")
+    return 1
 
 def playerdeath():
   global playerhealth
@@ -204,18 +208,22 @@ def playerdeath():
           playerhealth = 100
       print(enemyspawn(namegen(), 100, 10, enemyclass1))
       
-
+y = 0
 x = 1 
+z = 0
 while True:
   print(enemyspawn(namegen(), 10, 10, enemyclass1))
-  enemydead = 0
-  while enemydead == 0:
+  while True:
+    if enemydeath() == 1:
+      break
+    playerdeath()
     x = triggeraction()
     while x == 0:
-      x = triggeraction()
+        x = triggeraction()
     print(x)
     input("[Press 'Enter' to continue]")
-    print(enemyaction())
-    playerdeath()
-    enemydeath()
+    z = (enemyaction())
+    if z != 1:
+      print(z)
+    
     
