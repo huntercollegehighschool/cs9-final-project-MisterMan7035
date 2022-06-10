@@ -1,7 +1,7 @@
 import time
 import os
 import random
-
+import sys
 
 
 """
@@ -25,7 +25,7 @@ time.sleep(3)
 UNCOMMENT THIS SOMETIME!
 """
 
-playerhealth = 100
+playerhealth = 10
 enemyhealth1 = 0
 enemydamage1 = 0
 healthpotion = 3
@@ -112,6 +112,8 @@ def enemyaction():
     if intdeterm == 2:
       z = y - x
     playerhealth = playerhealth1 - z
+    if playerhealth < 0:
+      playerhealth = 0
     result = str(enemyname1) + " attacks you for " + str(z) + " damage." + "\n You have " + str(playerhealth) + " health left."
     return result
     
@@ -175,6 +177,22 @@ def triggeraction():
   return action
 """
 
+def playerdeath():
+  global playerhealth
+  if playerhealth < 1:
+      x = 0
+      print("You have been defeated by " +  
+ str(enemyname1) + ".\nWould you like to try again?")
+      while x == 0:
+        action = input("[Yes]: ")
+        if action.lower() == "yes":
+          x = 1
+          os.system("clear")
+          print("The world has decided that you will live to see another day!")
+          playerhealth = 100
+      print(enemyspawn(namegen(), 100, 10, enemyclass1))
+      
+       
 x = 1 
 while True:
   print(enemyspawn(namegen(), 100, 10, enemyclass1))
@@ -185,13 +203,5 @@ while True:
     print(x)
     input("[Press 'Enter' to continue]")
     print(enemyaction())
-
-
-
-if playerhealth < 1:
-  print("You have been defeated by " + str(enemyname1) + ". \nWould you like to try again?")
-  action = input("[Yes] [No]: ")
-  if action.lower() == "yes":
-    print("The world has decided to let you live to see another day!")
-    enemyspawn()
-#player death page
+    playerdeath()
+    
