@@ -124,7 +124,7 @@ def enemyaction():
   
 
 def useitem(item):
-  if item.lower == "health potion":
+  if item.lower() == "health potion":
     global playerhealth
     global healthpotion
     x = healthpotion
@@ -133,7 +133,7 @@ def useitem(item):
     z = random.randint(10, 15)
     playerhealth = y + z
     
-    result = "You use a health potion! \n You are healed for " + str(z) + " health. \nYou have " + str(healthpotion) + " left." 
+    result = "You use a health potion!\n You are healed for " + str(z) + " health.\nYou have " + str(healthpotion) + " left." 
     return result
     #placeholder
 
@@ -163,11 +163,11 @@ def triggeraction():
       print(inventory)
       x = 0
       while x == 0:
-        item = (input("[Use an item] [Cancel]"))
+        item = (input("[Health potion] [Cancel]"))
         if item.lower() == "cancel":
           return 0
         if item.lower() == "health potion":
-          action = useitem(item)
+          action = useitem("health potion")
           x = 1
           return action
 
@@ -212,7 +212,7 @@ y = 0
 x = 1 
 z = 0
 while True:
-  print(enemyspawn(namegen(), 10, 10, enemyclass1))
+  print(enemyspawn(namegen(), 100, 10, enemyclass1))
   while True:
     if enemydeath() == 1:
       break
