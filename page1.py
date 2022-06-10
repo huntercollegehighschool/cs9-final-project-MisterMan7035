@@ -115,7 +115,7 @@ def enemyaction():
     result = str(enemyname1) + " attacks you for " + str(z) + " damage." + "\n You have " + str(playerhealth) + " health left."
     return result
     
-
+    
   
 
 def useitem(item):
@@ -134,7 +134,7 @@ def useitem(item):
 
 
 def triggeraction(): 
-  actiondeterm = input("[Attack] [Use item] [Scavenge]")
+  actiondeterm = input("[Attack] [Use item] [Scavenge]: ")
   global enemyhealth1  
   enemyhealth = enemyhealth1
   global repeataction
@@ -183,5 +183,15 @@ while True:
     while x == 0:
       x = triggeraction()
     print(x)
-    input("[Next]")
+    input("[Press 'Enter' to continue]")
     print(enemyaction())
+
+
+
+if playerhealth < 1:
+  print("You have been defeated by " + str(enemyname1) + ". \nWould you like to try again?")
+  action = input("[Yes] [No]: ")
+  if action.lower() == "yes":
+    print("The world has decided to let you live to see another day!")
+    enemyspawn()
+#player death page
