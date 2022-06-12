@@ -127,13 +127,16 @@ def useitem(item):
   if item.lower() == "health potion":
     global playerhealth
     global healthpotion
+    global inventory
     x = healthpotion
-    healthpotion = x - 1
+    healthpotionminus = x - 1
+    healthpotion = healthpotionminus
     y = playerhealth
     z = random.randint(10, 15)
     playerhealth = y + z
     
-    result = "You use a health potion!\n You are healed for " + str(z) + " health.\nYou have " + str(healthpotion) + " left." 
+    result = "You use a health potion!\nYou are healed for " + str(z) + " health.\nYou have " + str(healthpotion) + " left." 
+    inventory = "You have " + str(healthpotion) + " health potions."
     return result
     #placeholder
 
@@ -143,6 +146,7 @@ def triggeraction():
   global enemyhealth1  
   enemyhealth = enemyhealth1
   global repeataction
+  global inventory
   repeataction = 0
   if actiondeterm.lower() == "attack":
     os.system("clear")
@@ -150,7 +154,7 @@ def triggeraction():
     enemyhealth = enemyhealth - playerdamage
     if enemyhealth < 1:
       enemyhealth = 0
-    action = ("You attack " + str(enemyname1) + " for " + str(playerdamage) + " damage!" "\nThey have " + str(enemyhealth) + " remaining.")
+    action = ("You attack " + str(enemyname1) + " for " + str(playerdamage) + " damage!\nThey have " + str(enemyhealth) + " remaining.")
     enemyhealth1 = enemyhealth
     return action
     
@@ -170,17 +174,33 @@ def triggeraction():
           action = useitem("health potion")
           x = 1
           return action
-
-  if actiondeterm.lower() != "use item":
-      return 0
-  if actiondeterm.lower() != "attack":
-      return 0
-    
-"""
+          
   if actiondeterm.lower() == "scavenge":
-    #placeholder action
-  return action
-"""
+    y = random.randint(1, 2)
+    if y == 1:
+      z = random.randint(1, 3)
+      if z == 1:
+        action = "You rummage around, but don't find anything of use."
+        return action
+      if z == 2:
+        action = "You try to find some items on the floor, but fail to get anything useful."
+        return action
+      if z == 3:
+        action = "You look around, but can't find any items."
+        return action
+    if y == 2:
+      healthpotionplus = healthpotion
+      healthpotion = healthpotionplus + 1
+      inventory = "You have " + str(healthpotion) + " health potions."
+      action = "You manage to find a health potion!"
+      return action
+      
+  if actiondeterm.lower() != "scavenge":
+    if actiondeterm.lower() != "attack":
+      if actiondeterm.lower() != "use item":
+        return 0
+        
+
 
 def enemydeath():
   global enemyhealth1
