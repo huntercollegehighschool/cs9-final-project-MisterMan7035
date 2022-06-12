@@ -4,7 +4,7 @@ import random
 
 
 
-"""
+
 
 dotArray = "Loading"
 x = 1
@@ -18,12 +18,10 @@ while x < y:
   print(dotArray)
   x = x + 1
 
-time.sleep(3)
+time.sleep(2)
 os.system("clear")
-time.sleep(3)
+time.sleep(2)
 
-UNCOMMENT THIS SOMETIME!
-"""
 
 playerhealth = 100
 enemyhealth1 = 0
@@ -75,7 +73,7 @@ def enemyspawn(enemyname, enemyhealth, enemydamage, enemyclass):
   return result
 
 def namegen():
-  firstname =["Ryan", "George", "Benson", "Albert", "Katya", "Lily", "Kai", "Sarah", "Lynn", "Diane", "Basil", "William", "Theo", "Ayden", "Nile", "Eric", "Levi", "Arche", "Rio", "Austin", "Georgie", "Sasha", "Jaivan", "Kiren", "Kareem", "Diya", "Bella", "Felix", "Jennie", "Xanthe", "Serena", "Maya", "Evan", "Vera", "Arbion", "Colby", "Darren", "Ayan", "Jason"]
+  firstname =["Ryan", "George", "Benson", "Albert", "Katya", "Lily", "Kai", "Sarah", "Lynn", "Diane", "Basil", "William", "Theo", "Ayden", "Nile", "Eric", "Levi", "Arche", "Rio", "Austin", "Georgie", "Sasha", "Jaivan", "Kiren", "Kareem", "Diya", "Bella", "Felix", "Jennie", "Xanthe", "Serena", "Maya", "Evan", "Vera", "Arbion", "Colby", "Darren", "Ayan", "Jason", "Taegan", "Frannie"]
   midname = ["Mage", "Warrior", "Knight", "Archer"]
   global enemyclass1
   lastname = ["Alabama","Alaska","Arizona","Arkansas","California","Colorado", "Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois", "Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland", "Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana",
@@ -132,7 +130,7 @@ def useitem(item):
     z = random.randint(10, 15)
     playerhealth = y + z
     
-    result = "You use a health potion!\nYou are healed for " + str(z) + " health.\nYou have " + str(healthpotion) + " left." 
+    result = "You use a health potion!\nYou are healed for " + str(z) + " health.\nYou have " + str(healthpotion) + " health potions left.\nYou have " + str(playerhealth) + " health left."
     inventory = "You have " + str(healthpotion) + " health potions."
     return result
     #placeholder
