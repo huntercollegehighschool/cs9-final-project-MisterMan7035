@@ -119,9 +119,6 @@ def enemyaction():
       playerhealth = 0
     result = str(enemyname1) + " attacks you for " + str(z) + " damage.\nYou have " + str(playerhealth) + " health left."
     return result
-    
-    
-  
 
 def useitem(item):
   if item.lower() == "health potion":
@@ -206,9 +203,15 @@ def enemydeath():
   global enemyhealth1
   global enemyname1
   global enemydead
+  global inventory
+  global healthpotion
+  enemyitemdeterm = random.randint(1, 2)
   if enemyhealth1 < 1: 
     print("You have defeated " + str(enemyname1) + ".")
-    #ADD ITEM DROPS
+    if enemyitemdeterm == 1:
+      print("They drop a health potion!")
+      healthpotion = healthpotion + 1
+      inventory = "You have " + str(healthpotion) + " health potions."
     input("[Press 'Enter' to continue.]")
     os.system("clear")
     return 1
